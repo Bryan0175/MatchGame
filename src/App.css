@@ -1,0 +1,110 @@
+@font-face {
+  font-family: "Minecraft";
+  src: local("Minecraft"),
+  url("./fonts/Minecraft.ttf")
+}
+@font-face {
+  font-family: "SuperMario";
+  src: local("SuperMario"),
+  url("./fonts/SuperMario256.ttf")
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image: url("./img/bg1.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+}
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+h1{
+  font-family: SuperMario;
+  font-weight: 500;
+  font-size: 3em;
+  text-transform: uppercase;
+  margin: 30px 0;
+  color: #fff;
+  text-shadow: 2px 2px #111;
+}
+.box{
+  position: relative;
+  width: 600px;
+  height: 200px;
+  border-bottom: 2px solid #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.box label{
+  position: relative;
+  width: 100%;
+  height: 33.3333%;
+  border: 2px solid #555;
+  border-bottom: none;
+  cursor: grab;
+}
+.box label input{
+  appearance: none;
+}
+.box label i{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 600px;
+}
+.box label:nth-child(1) i{
+  background-image: url("./img/top.jpg");
+  animation: animate .5s steps(3) infinite;
+}
+.box label:nth-child(2) i{
+  background-image: url("./img/middle.jpg");
+  animation: animate .4s steps(3) infinite;
+}
+.box label:nth-child(3) i{
+  background-image: url("./img/bottom.jpg");
+  animation: animate .7s steps(3) infinite;
+}
+@keyframes animate {
+  0%{
+    background-position: 0px;
+  }
+  100%{
+    background-position: 600px;
+  }
+}
+.box label input:checked ~ i{
+  animation-play-state: paused;
+}
+.reset{
+  margin: 40px 0;
+  font-size: 2em;
+  padding: 10px 25px;
+  background: #fc9838;
+  color: #c84c0c;
+  font-family: Minecraft;
+  font-weight: 500;
+  text-shadow: 2px 3px #111;
+  cursor: pointer;
+  border-bottom: 5px solid #000;
+  border-right: 6px solid #000;
+  border-left: 5px solid #c84c0c;
+  border-top: 5px solid #c84c0c;
+}
+.reset:active{
+  background: #d63c3c;
+  transform: scale(0.95);
+}
